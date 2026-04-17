@@ -1,6 +1,6 @@
 // =============================================================
 // site.js — Dark mode, publication filter, toggles, scroll effects,
-//           copy bibtex, back-to-top, year badges
+//           copy bibtex, back-to-top
 // =============================================================
 
 (function () {
@@ -97,20 +97,6 @@
     pre.parentNode.insertBefore(wrapper, pre);
     wrapper.appendChild(pre);
     wrapper.appendChild(btn);
-  });
-
-  // ----- Publication Year Badges -----
-
-  document.querySelectorAll('.pub-entry').forEach(function (entry) {
-    var text = entry.textContent;
-    // Match a 4-digit year in parentheses, common in citation format
-    var match = text.match(/\((\d{4})\)/);
-    if (match) {
-      var badge = document.createElement('span');
-      badge.className = 'year-badge';
-      badge.textContent = match[1];
-      entry.insertBefore(badge, entry.firstChild);
-    }
   });
 
   // ----- Back to Top Button -----

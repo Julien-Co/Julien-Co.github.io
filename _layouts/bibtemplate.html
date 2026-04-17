@@ -2,40 +2,80 @@
 ---
 
 <div class="pub-entry" data-pub-searchable>
-  <div class="text-justify">{{ reference }}</div>
-
-  <!-- You can use the below to make your name bold -->
-  <!-- <div class="text-justify">{{ reference | replace_first: 'Bryngelson, S. H.', '<b>Bryngelson, S. H.</b>' }}</div> -->
-
-  {% assign bibtest = false %}
-  {% if entry.file %}
-  {% assign bibfile = "/papers/" | append: entry.file %}
-  {% for file in site.static_files %}
-    {% if file.path contains bibfile %}
-     {% assign bibtest = true %}
+  <div class="pub-title">{{ entry.title }}</div>
+  <div class="pub-authors">
+    {% assign authors = entry.author | split: ' and ' %}
+    {% for author in authors %}
+      {% assign author_parts = author | split: ',' %}
+      {% assign surname = author_parts[0] | strip %}
+      {% assign given_names = author_parts[1] | strip %}
+      {% if author_parts.size > 1 %}
+        {% assign initial = given_names | slice: 0, 1 %}
+        {% capture formatted_author %}{{ surname }}, {{ initial }}.{% endcapture %}
+      {% else %}
+        {% assign formatted_author = surname %}
+      {% endif %}
+      {% if surname == 'Colin' and given_names contains 'Julien' %}<strong>{{ formatted_author | strip }}</strong>{% else %}{{ formatted_author | strip }}{% endif %}{% unless forloop.last %}, {% endunless %}
+    {% endfor %}
+  </div>
+  <div class="pub-venue">
+    {% if entry.year %}<span class="pub-year">{{ entry.year }}.</span> {% endif %}
+    {% if entry.journal %}
+      {{ entry.journal }}
+    {% elsif entry.booktitle %}
+      {{ entry.booktitle }}
+    {% elsif entry.publisher %}
+      {{ entry.publisher }}
+    {% elsif entry.type %}
+      {{ entry.type | capitalize }}
     {% endif %}
-  {% endfor %}
-  {% endif %}
+  </div>
 
   <div class="pub-actions">
-    {% if bibtest %}
-    <a href="{{ site.url }}{{ site.baseurl }}/papers/{{ entry.file }}" target="_blank" class="btn-pill btn-pdf">PDF</a>
+    {% if entry.file and entry.file != "" %}
+    <a href="{{ entry.file | prepend: '/papers/' | relative_url }}" target="_blank" rel="noopener" class="btn-pill btn-pdf" aria-label="Open PDF">
+      <i class="fa-regular fa-file-pdf" aria-hidden="true"></i>
+      <span>PDF</span>
+    </a>
+    {% endif %}
+
+    {% if entry.arxiv and entry.arxiv != "" %}
+      {% assign arxiv_link = entry.arxiv %}
+      {% unless arxiv_link contains 'http' %}
+        {% assign arxiv_link = entry.arxiv | prepend: 'https://arxiv.org/abs/' %}
+      {% endunless %}
+      <a href="{{ arxiv_link }}" target="_blank" rel="noopener" class="btn-pill btn-arxiv" aria-label="Open arXiv">
+        <i class="ai ai-arxiv" aria-hidden="true"></i>
+        <span>arXiv</span>
+      </a>
     {% endif %}
 
     {% if entry.doi %}
       {% if entry.type == 'unpublished' %}
-      <a href="{{ entry.doi | prepend: 'https://arxiv.org/abs/' }}" target="_blank" class="btn-pill btn-arxiv">arXiv</a>
+      <a href="{{ entry.doi | prepend: 'https://arxiv.org/abs/' }}" target="_blank" rel="noopener" class="btn-pill btn-arxiv" aria-label="Open arXiv">
+        <i class="ai ai-arxiv" aria-hidden="true"></i>
+        <span>arXiv</span>
+      </a>
       {% else %}
-      <a href="{{ entry.doi | prepend: 'http://doi.org/' }}" target="_blank" class="btn-pill btn-doi">DOI</a>
+      <a href="{{ entry.doi | prepend: 'http://doi.org/' }}" target="_blank" rel="noopener" class="btn-pill btn-doi" aria-label="Open DOI">
+        <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        <span>DOI</span>
+      </a>
       {% endif %}
     {% endif %}
 
     {% if entry.type == 'unpublished' or entry.type == 'article' or entry.type == 'thesis' or entry.type == 'inproceedings' or entry.type == 'report' %}
-    <button class="btn-pill btn-bib" data-toggle-target="bib-{{ entry.key }}">BIB</button>
+    <button class="btn-pill btn-bib" data-toggle-target="bib-{{ entry.key }}">
+      <i class="fa-solid fa-quote-left" aria-hidden="true"></i>
+      <span>BIB</span>
+    </button>
     {% endif %}
 
     {% if entry.abstract %}
-    <button class="btn-pill btn-abstract" data-toggle-target="abs-{{ entry.key }}">Abstract</button>
+    <button class="btn-pill btn-abstract" data-toggle-target="abs-{{ entry.key }}">
+      <i class="fa-regular fa-file-lines" aria-hidden="true"></i>
+      <span>Abstract</span>
+    </button>
     {% endif %}
   </div>
 

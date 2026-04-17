@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" role="img" aria-labelledby="title desc">
+  <title id="title">Model interpretability illustration</title>
+  <desc id="desc">Layered nodes connecting to highlighted concept groups.</desc>
+  <rect width="400" height="240" fill="#f5f7f2"/>
+  <g stroke="#1a7a6d" stroke-width="2" opacity="0.55">
+    <path d="M90 72 C145 64 175 96 224 86"/>
+    <path d="M90 120 C145 120 176 120 224 120"/>
+    <path d="M90 168 C145 176 175 144 224 154"/>
+    <path d="M224 86 C262 84 287 99 318 104"/>
+    <path d="M224 120 C260 120 287 120 318 120"/>
+    <path d="M224 154 C262 156 287 141 318 136"/>
+  </g>
+  <g fill="#1a7a6d">
+    <circle cx="90" cy="72" r="14"/>
+    <circle cx="90" cy="120" r="14"/>
+    <circle cx="90" cy="168" r="14"/>
+    <circle cx="224" cy="86" r="12"/>
+    <circle cx="224" cy="120" r="12"/>
+    <circle cx="224" cy="154" r="12"/>
+  </g>
+  <g fill="#d84b5b">
+    <circle cx="318" cy="104" r="16"/>
+    <circle cx="318" cy="136" r="16"/>
+  </g>
+  <rect x="276" y="82" width="86" height="76" rx="8" fill="none" stroke="#d84b5b" stroke-width="3"/>
+  <path d="M52 32 H348" stroke="#2f3a3a" stroke-width="2" opacity="0.18"/>
+  <path d="M52 208 H348" stroke="#2f3a3a" stroke-width="2" opacity="0.18"/>
+</svg>

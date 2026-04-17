@@ -4,9 +4,9 @@
 
 :root {
   // Accent — a warm scholarly teal
-  --accent: #1a7a6d;
-  --accent-hover: #15655a;
-  --accent-light: rgba(26, 122, 109, 0.08);
+  --accent: #4A8FB9;
+  --accent-hover: #4A8FB9;
+  --accent-light: rgba(74, 143, 185, 0.08);
 
   // Light mode — warm parchment tones
   --bg-primary: #f8f6f1;
@@ -51,8 +51,8 @@
 
 // Dark mode — rich warm dark
 [data-bs-theme="dark"] {
-  --accent: #3dbaa8;
-  --accent-hover: #5dd4c2;
+  --accent: #89B6C9;
+  --accent-hover:#89B6C9;
   --accent-light: rgba(61, 186, 168, 0.1);
 
   --bg-primary: #1c1b18;

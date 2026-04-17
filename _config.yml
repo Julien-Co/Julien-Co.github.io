@@ -2,7 +2,7 @@
 # STEP 1: Your Identity (required)
 # ============================================================
 name: "Julien Colin"
-title: "PhD Student in Computer Science"
+title: "ELLIS PhD Student in Interpretable AI"
 institution: "ELLIS Alicante - Brown University"
 email: julien_colin@brown.edu
 photo: headshot.jpg  # place your photo in images/
@@ -17,12 +17,12 @@ links:
   orcid: ""
   twitter: "https://x.com/juliencolin_"
   linkedin: "www.linkedin.com/in/julien-colin-b84045256"
-  cv: ""  # e.g., "papers/cv.pdf" — leave blank to hide the CV icon
+  cv: "papers/cv.pdf"  # e.g., "papers/cv.pdf" — leave blank to hide the CV icon
 
 # ============================================================
 # STEP 3: Site Settings
 # ============================================================
-accent_color: "#1a7a6d"      # theme color for links and buttons
+# accent_color: "#4A8FB9"  #"#1a7a6d"      # theme color for links and buttons
 dark_mode: true              # show dark mode toggle in navbar
 description: "Academic webpage of Dr. Julien Colin"
 baseurl: ""
@@ -38,7 +38,7 @@ analytics:
 nav_pages:
   # - name: home
   - name: publications
-  - name: CV
+  - name: cv
   # - name: research
   # - name: software
   # - name: team
@@ -77,8 +77,8 @@ kramdown:
 plugins: ["jekyll/scholar", "jekyll-sitemap"]
 
 scholar:
-  last_name: Julien
-  first_name: [Colin]
+  last_name: Colin
+  first_name: [Julien]
   style: citesty
   locale: en
   source: /assets/

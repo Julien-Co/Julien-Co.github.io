@@ -2,6 +2,24 @@
 // Publication entry
 // =============================================================
 
+.page-title-center {
+  text-align: center;
+
+  &::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.bibliography {
+  list-style: none;
+  padding-left: 0;
+}
+
+.bibliography li {
+  margin-left: 0;
+}
+
 .pub-entry {
   padding: var(--space-6) 0;
   border-bottom: 1px solid var(--border-color);
@@ -14,11 +32,16 @@
   .pub-title {
     font-weight: 600;
     color: var(--text-primary);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: var(--space-1);
   }
 
   .pub-authors {
     font-size: 0.9375rem;
     color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-1);
   }
 
   .pub-venue {
@@ -27,29 +50,16 @@
     font-style: italic;
   }
 
+  .pub-year {
+    font-style: normal;
+  }
+
   .pub-actions {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2);
     margin-top: var(--space-3);
   }
-}
-
-// Year badge — accent pill floated right
-.year-badge {
-  display: inline-block;
-  float: right;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  padding: 0.15rem 0.625rem;
-  border-radius: var(--radius-full);
-  background-color: var(--accent-light);
-  color: var(--accent);
-  border: 1px solid var(--accent);
-  margin-left: var(--space-3);
-  margin-top: var(--space-1);
 }
 
 // Collapsible bibtex/abstract

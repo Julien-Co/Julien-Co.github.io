@@ -2,9 +2,6 @@
 <a href="{{ site.url }}{{ site.baseurl }}/about">
 <img src="{{ site.url }}{{ site.baseurl }}/images/{{ site.photo }}" class="profile-photo" alt="{{ site.name }}" loading="lazy">
 </a>
-<h4 class="profile-name">{{ site.name }}</h4>
-<p class="profile-title">{{ site.title }}</p>
-<p class="profile-institution">{{ site.institution }}</p>
 <div class="profile-links">
 {% if site.email %}<a href="mailto:{{ site.email }}" class="icon-link" title="Email"><i class="fa-solid fa-envelope"></i></a>{% endif %}
 {% if site.links.cv and site.links.cv != "" %}<a href="{{ site.url }}{{ site.baseurl }}/{{ site.links.cv }}" class="icon-link" title="CV"><i class="ai ai-cv"></i></a>{% endif %}
@@ -22,17 +19,4 @@
 {% endfor %}
 </ul>
 {% endif %}
-</div>
-
-<div class="section-card" style="margin-top: var(--space-6);">
-<h4 style="margin-top: 0;">News</h4>
-<div class="news-timeline">
-{% for article in site.data.news limit:3 %}
-<div class="news-item">
-<div class="news-date">{{ article.date }}</div>
-<div class="news-headline">{{ article.headline }}</div>
-</div>
-{% endfor %}
-</div>
-<p style="margin-top: var(--space-4);"><a href="{{ site.url }}{{ site.baseurl }}/allnews.html">See all news &rarr;</a></p>
 </div>
