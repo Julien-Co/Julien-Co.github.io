@@ -75,12 +75,14 @@
   .research-card {
     grid-template-columns: minmax(280px, 46%) 1fr;
     column-gap: var(--space-3);
-    min-height: 133px;
+    height: 66.666vh;
+    min-height: 360px;
   }
 
   .research-thumb {
     align-self: stretch;
-    min-height: 133px;
+    min-height: 0;
+    object-fit: contain;
   }
 
   .research-card:hover .research-thumb {
@@ -116,6 +118,7 @@
   @media (max-width: 640px) {
     .research-card {
       grid-template-columns: 1fr;
+      height: auto;
       min-height: 0;
     }
 
