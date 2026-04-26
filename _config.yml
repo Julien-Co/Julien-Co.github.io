@@ -29,7 +29,7 @@ links:
 # ============================================================
 # accent_color: "#4A8FB9"  #"#1a7a6d"      # theme color for links and buttons
 dark_mode: true              # show dark mode toggle in navbar
-description: "Academic webpage of Dr. Julien Colin"
+description: "Academic webpage of Julien Colin"
 baseurl: ""
 url: ""
 
