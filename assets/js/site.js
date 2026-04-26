@@ -157,6 +157,19 @@
     });
   }
 
+  // ----- Desktop-only Feature Visualization Hydration -----
+
+  var desktopFeatureQuery = window.matchMedia('(min-width: 769px) and (pointer: fine)');
+  document.querySelectorAll('[data-feature-visualizations-root]').forEach(function (root) {
+    if (!desktopFeatureQuery.matches || root.querySelector('.feature-figure')) return;
+
+    var template = root.querySelector('[data-feature-visualizations-template]');
+    if (!template || !template.content) return;
+
+    root.appendChild(template.content.cloneNode(true));
+    root.classList.add('is-hydrated');
+  });
+
   // ----- Draggable Pan Viewports -----
 
   document.querySelectorAll('[data-draggable-pan]').forEach(function (viewport) {

@@ -88,6 +88,33 @@
   box-shadow: none;
   background: transparent;
 
+  .feature-mobile-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: var(--space-5);
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--bg-secondary) 88%, transparent 12%) 0%,
+      color-mix(in srgb, var(--bg-card) 92%, transparent 8%) 100%
+    );
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    text-align: center;
+  }
+
+  .feature-mobile-fallback-text {
+    margin: 0;
+    max-width: 38rem;
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  &.is-hydrated .feature-mobile-fallback {
+    display: none;
+  }
+
   .feature-figure {
     margin: 0;
     display: flex;
@@ -233,26 +260,9 @@
   @media (max-width: 768px) {
     --feature-header-height: 1.85rem;
 
-    height: calc((2 * var(--home-news-min-height, 11.5rem)) + 1.5rem);
+    height: auto;
+    min-height: 10rem;
     padding: 0;
-
-    .feature-viewport {
-      min-height: 0;
-    }
-
-    .feature-canvas {
-      width: max(100%, calc(100% * var(--feature-zoom)));
-    }
-
-    .feature-zoom-controls {
-      right: var(--space-2);
-      bottom: calc(var(--space-2) + 1.75rem);
-    }
-
-    .feature-zoom-toggle {
-      width: 2.3rem;
-      height: 2.3rem;
-    }
 
     .feature-caption {
       padding: 0;

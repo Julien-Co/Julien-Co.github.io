@@ -1,69 +1,81 @@
-<section class="home-feature-visualizations" aria-label="Feature visualizations across models">
+<section
+  class="home-feature-visualizations"
+  data-feature-visualizations-root
+  aria-label="Feature visualizations across models"
+>
   {% assign feature_indices = "505,68,24,520,530,151" | split: "," %}
   {% assign feature_models = "vits16,vitb16,dinov2,dinov3,clip_vitb16,siglip" | split: "," %}
   {% assign feature_labels = "ViT-S,ViT-B,DINOv2,DINOv3,CLIP-ViT,SigLIP" | split: "," %}
 
-  <figure class="feature-figure">
-    <div class="feature-viewport" data-draggable-pan aria-label="Draggable feature visualization grid">
-      <div class="feature-canvas">
-        <div class="feature-row feature-row--header">
-          <div class="feature-corner">
-            <span class="feature-corner-text"></span>
-          </div>
-          {% for label in feature_labels %}
-          <div class="feature-header">
-            <span class="feature-header-text">{{ label }}</span>
-          </div>
-          {% endfor %}
-        </div>
+  <div class="feature-mobile-fallback">
+    <p class="feature-mobile-fallback-text">
+      Feature visualization comparisons are available on larger screens to keep the mobile homepage fast and stable.
+    </p>
+  </div>
 
-        {% for idx in feature_indices %}
-        <div class="feature-row">
-          <div class="feature-tile feature-tile--reference">
-            <img
-              src="{{ site.url }}{{ site.baseurl }}/images/features/{{ idx }}_image.png"
-              alt="Reference image {{ idx }}"
-              loading="lazy"
-              decoding="async"
-              draggable="false"
-            >
+  <template data-feature-visualizations-template>
+    <figure class="feature-figure">
+      <div class="feature-viewport" data-draggable-pan aria-label="Draggable feature visualization grid">
+        <div class="feature-canvas">
+          <div class="feature-row feature-row--header">
+            <div class="feature-corner">
+              <span class="feature-corner-text"></span>
+            </div>
+            {% for label in feature_labels %}
+            <div class="feature-header">
+              <span class="feature-header-text">{{ label }}</span>
+            </div>
+            {% endfor %}
           </div>
-          {% for model in feature_models %}
-          {% assign model_label = feature_labels[forloop.index0] %}
-          <div class="feature-tile">
-            <img
-              src="{{ site.url }}{{ site.baseurl }}/images/features/{{ idx }}_{{ model }}_0.webp"
-              alt="{{ model_label }} feature visualization for image {{ idx }}"
-              loading="lazy"
-              decoding="async"
-              draggable="false"
-            >
+
+          {% for idx in feature_indices %}
+          <div class="feature-row">
+            <div class="feature-tile feature-tile--reference">
+              <img
+                src="{{ site.url }}{{ site.baseurl }}/images/features/{{ idx }}_image.png"
+                alt="Reference image {{ idx }}"
+                loading="lazy"
+                decoding="async"
+                draggable="false"
+              >
+            </div>
+            {% for model in feature_models %}
+            {% assign model_label = feature_labels[forloop.index0] %}
+            <div class="feature-tile">
+              <img
+                src="{{ site.url }}{{ site.baseurl }}/images/features/{{ idx }}_{{ model }}_0.webp"
+                alt="{{ model_label }} feature visualization for image {{ idx }}"
+                loading="lazy"
+                decoding="async"
+                draggable="false"
+              >
+            </div>
+            {% endfor %}
           </div>
           {% endfor %}
         </div>
-        {% endfor %}
       </div>
-    </div>
-    <div class="feature-zoom-controls" aria-label="Feature visualization zoom controls">
-      <button
-        type="button"
-        class="feature-zoom-toggle"
-        data-feature-zoom-out
-        aria-label="Zoom out of feature visualizations by 10 percent"
-        title="Zoom out"
-      >
-        <i class="fa-solid fa-magnifying-glass-minus" aria-hidden="true"></i>
-      </button>
-      <button
-        type="button"
-        class="feature-zoom-toggle"
-        data-feature-zoom-in
-        aria-label="Zoom in on feature visualizations by 10 percent"
-        title="Zoom in"
-      >
-        <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
-      </button>
-    </div>
-    <figcaption class="feature-caption"><em>Most important feature for the correct prediction on that image.</em></figcaption>
-  </figure>
+      <div class="feature-zoom-controls" aria-label="Feature visualization zoom controls">
+        <button
+          type="button"
+          class="feature-zoom-toggle"
+          data-feature-zoom-out
+          aria-label="Zoom out of feature visualizations by 10 percent"
+          title="Zoom out"
+        >
+          <i class="fa-solid fa-magnifying-glass-minus" aria-hidden="true"></i>
+        </button>
+        <button
+          type="button"
+          class="feature-zoom-toggle"
+          data-feature-zoom-in
+          aria-label="Zoom in on feature visualizations by 10 percent"
+          title="Zoom in"
+        >
+          <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+        </button>
+      </div>
+      <figcaption class="feature-caption"><em>Most important feature for the correct prediction on that image.</em></figcaption>
+    </figure>
+  </template>
 </section>
