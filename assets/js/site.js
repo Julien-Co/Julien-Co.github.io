@@ -157,6 +157,106 @@
     });
   }
 
+  // ----- Draggable Pan Viewports -----
+
+  document.querySelectorAll('[data-draggable-pan]').forEach(function (viewport) {
+    var isDragging = false;
+    var startX = 0;
+    var startY = 0;
+    var startLeft = 0;
+    var startTop = 0;
+    var pointerId = null;
+
+    viewport.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+
+      isDragging = true;
+      pointerId = e.pointerId;
+      startX = e.clientX;
+      startY = e.clientY;
+      startLeft = viewport.scrollLeft;
+      startTop = viewport.scrollTop;
+
+      viewport.classList.add('is-dragging');
+      viewport.setPointerCapture(pointerId);
+      e.preventDefault();
+    });
+
+    viewport.addEventListener('pointermove', function (e) {
+      if (!isDragging) return;
+
+      var dx = e.clientX - startX;
+      var dy = e.clientY - startY;
+
+      viewport.scrollLeft = startLeft - dx;
+      viewport.scrollTop = startTop - dy;
+    });
+
+    function endDrag(e) {
+      if (!isDragging) return;
+      isDragging = false;
+      viewport.classList.remove('is-dragging');
+
+      if (pointerId !== null && viewport.hasPointerCapture(pointerId)) {
+        viewport.releasePointerCapture(pointerId);
+      }
+
+      pointerId = null;
+    }
+
+    viewport.addEventListener('pointerup', endDrag);
+    viewport.addEventListener('pointercancel', endDrag);
+    viewport.addEventListener('pointerleave', function (e) {
+      if (e.pointerType === 'mouse') {
+        endDrag(e);
+      }
+    });
+  });
+
+  // ----- Feature Visualization Zoom Controls -----
+
+  document.querySelectorAll('.home-feature-visualizations').forEach(function (section) {
+    var zoomInButton = section.querySelector('[data-feature-zoom-in]');
+    var zoomOutButton = section.querySelector('[data-feature-zoom-out]');
+    if (!zoomInButton || !zoomOutButton) return;
+
+    var minZoom = 1;
+    var maxZoom = 2;
+    var zoomStep = 0.1;
+    var zoomLevel = 1;
+
+    function applyZoom() {
+      section.style.setProperty('--feature-zoom', String(zoomLevel));
+      zoomOutButton.disabled = zoomLevel <= minZoom;
+      zoomInButton.disabled = zoomLevel >= maxZoom;
+    }
+
+    function updateZoom(delta) {
+      zoomLevel = Math.max(minZoom, Math.min(maxZoom, Math.round((zoomLevel + delta) * 10) / 10));
+      applyZoom();
+    }
+
+    [zoomInButton, zoomOutButton].forEach(function (button) {
+      button.addEventListener('pointerdown', function (e) {
+        e.stopPropagation();
+      });
+    });
+
+    zoomInButton.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      updateZoom(zoomStep);
+    });
+
+    zoomOutButton.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      updateZoom(-zoomStep);
+    });
+
+    applyZoom();
+  });
+
   // ----- Site Search -----
 
   var searchToggleBtn = document.getElementById('searchToggle');

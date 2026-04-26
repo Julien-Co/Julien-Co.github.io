@@ -5,13 +5,17 @@ layout: default
 {% assign home_sections = content | split: '<!-- home-full-width -->' %}
 
 <div class="home-grid">
-  <div>
+  <div class="home-sidebar">
     {% include sidebar.html %}
   </div>
 
   <div class="home-content">
     {{ home_sections[0] }}
   </div>
+</div>
+
+<div class="home-feature-band">
+  {% include feature-visualizations.html %}
 </div>
 
 <div class="home-full-width">

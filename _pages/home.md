@@ -18,12 +18,16 @@ permalink: /
 
 Hi, my name is Julien. I am a 4rth year 
 <a href="https://ellis.eu/" target="_blank" rel="noopener noreferrer" class="affiliation-link">
-  <span style="color: #0057b8;">E</span><span style="color: #f4c300;">L</span><span style="color: #009f3d;">L</span><span style="color: #df0024;">I</span><span style="color: #000000;">S</span>
+  <span style="color: #DC715F;">E</span><span style="color: #B5E681;">L</span><span style="color: #55C5BF;">L</span><span style="color: #E08E42;">I</span><span style="color: #6C9BDF;">S</span>
 </a>
 PhD student, working under the supervision of Nuria Oliver and Thomas Serre.
  
 <!-- In my research, I explore what makes computer vision models interpretable to people.  -->
 I want to understand what makes representations interpretable to humans, how aligning models with human perception reshape their representations, and what impacts this has on their interpretability.
+
+If you are interested in any of those questions, feel free to reach out to chat.
+
+<!-- When I am not working, I am mostly reading books, or running. -->
 <!-- I am deeply interested in understanding what kind of visual representations are learned by different representational learning framework. I am interested in understanding how aligning models with humans reshape their representation. I want to understand what kind of features are interpretable, what kind of principles makes representation interpretable. 
 Aiming to understand | what makes vision models interpretable to humans | how and why aligning them with humans shape their representation in a way that make them more interpretable. 
 Making progress toward this goal one psychophysics experiment at a time. -->
@@ -45,21 +49,21 @@ Making progress toward this goal one psychophysics experiment at a time. -->
 </div>
 
 <div class="research-card">
-<img src="{{ site.url }}{{ site.baseurl }}/images/research/human-centered-evaluation.svg" class="research-thumb" alt="Human-centered evaluation illustration" loading="lazy">
+<img src="{{ site.url }}{{ site.baseurl }}/images/research/choosingv2.png" class="research-thumb" alt="Human-centered evaluation illustration" loading="lazy">
 <div class="research-body">
 <h4 class="research-title">Choosing the right basis for interpretability: Psychophysical comparison between neuron-based and dictionary-based representations</h4>
 <p class="research-authors">Colin, Julien, Oliver, Nuria, and Serre Thomas.</p>
-<p class="research-desc">What is the right atom of interpretability? Historically, people have consider the neuron as the atoms but recently the field has pushed for a shift toward distributed features. If it's neuron</p>
+<p class="research-desc">What is the right "atom" for interpreting vision models? Neurons have long been the default, yet they often mix unrelated patterns—motivating a recent shift toward dictionary learning methods. Across 481 participants and 2 models, we measured how visually coherent features from neurons or dictionary elements are, and find (1) dictionary-based features consistently more interpretable, and (2) that comparing models using neurons alone can mask real differences and  mislead conclusions.</p>
 </div>
 </div>
 
 
 <div class="research-card">
-<img src="{{ site.url }}{{ site.baseurl }}/images/research/visual-reasoning.svg" class="research-thumb" alt="Visual reasoning illustration" loading="lazy">
+<img src="{{ site.url }}{{ site.baseurl }}/images/research/Figures_metapred.png" class="research-thumb" alt="Visual reasoning illustration" loading="lazy">
 <div class="research-body">
 <h4 class="research-title">What i cannot predict, i do not understand: A human-centered evaluation framework for explainability methods</h4>
 <p class="research-authors">Colin, Julien, Oliver, Nuria, and Serre Thomas.</p>
-<p class="research-desc">General pitch, and the human experiments I have run.</p>
+<p class="research-desc">How useful are explainability methods for actual end-users? Most evaluation metrics for attribution methods have remained theoretical, with little regard for whether they help people understand AI systems. We address this gap with large-scale psychophysics experiments (n = 1,150) testing attribution methods across three real-world scenarios. Usefulness varies widely across scenarios, faithfulness metrics fail to predict practical utility, and high perceptual similarity between class-discriminative regions predicts failure cases — pointing to an intrinsic limitation of methods that show *where* but not *what* drives a decision.</p>
 </div>
 </div>
 
