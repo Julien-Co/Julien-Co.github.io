@@ -9,7 +9,8 @@
 }
 
 .site-container {
-  max-width: var(--container-max);
+  width: min(var(--container-max), calc(100vw - (2 * var(--container-padding))));
+  max-width: none;
   margin: 0 auto;
   padding: var(--space-8) var(--container-padding) 0;
 }

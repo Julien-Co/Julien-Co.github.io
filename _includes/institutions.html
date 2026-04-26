@@ -1,0 +1,12 @@
+{%- if site.institutions and site.institutions.size > 0 -%}
+  {%- for institution in site.institutions -%}
+    {%- if institution.url and institution.url != "" -%}
+      <a href="{{ institution.url }}" target="_blank" rel="noopener noreferrer" class="text-link">{{ institution.name }}</a>
+    {%- else -%}
+      {{ institution.name }}
+    {%- endif -%}
+    {%- unless forloop.last -%}{{ include.separator | default: " - " }}{%- endunless -%}
+  {%- endfor -%}
+{%- else -%}
+  {{ site.institution }}
+{%- endif -%}

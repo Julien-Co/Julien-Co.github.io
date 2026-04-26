@@ -4,6 +4,11 @@
 name: "Julien Colin"
 title: "ELLIS PhD Student in Interpretable AI"
 institution: "ELLIS Alicante - Brown University"
+institutions:
+  - name: "ELLIS Alicante"
+    url: "https://ellisalicante.org/"
+  - name: "Brown University"
+    url: "https://serre.lab.brown.edu/"
 email: julien_colin@brown.edu
 photo: headshot.jpg  # place your photo in images/
 
