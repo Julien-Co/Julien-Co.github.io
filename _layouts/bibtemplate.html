@@ -1,7 +1,7 @@
 ---
 ---
 
-<div class="pub-entry" data-pub-searchable>
+<div class="pub-entry" id="{{ entry.key }}" data-pub-searchable>
   <div class="pub-title">{{ entry.title }}</div>
   <div class="pub-authors">
     {% assign authors = entry.author | split: ' and ' %}

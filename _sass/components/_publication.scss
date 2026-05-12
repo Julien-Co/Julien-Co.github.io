@@ -29,6 +29,7 @@
   padding: var(--space-6) 0;
   border-bottom: 1px solid var(--border-color);
   position: relative;
+  scroll-margin-top: calc(var(--space-8) + 4rem);
 
   &:last-child {
     border-bottom: none;

@@ -23,9 +23,9 @@ Hi, my name is Julien. I am a 4th year
 PhD student, working under the supervision of <a href="https://nuriaoliver.com/" target="_blank" rel="noopener noreferrer" class="text-link">Nuria Oliver</a> and <a href="https://thomas-serre.com/" class="text-link">Thomas Serre</a>.
  
 
-I study what makes representations interpretable to humans, how aligning models with human perception reshapes their representations, and what this means for models' interpretability.
+I study what makes representations interpretable to humans, how aligning models with human perception reshapes their representations, and what this means for model interpretability.
 
-If any of these questions interest you, feel free to <a href="mailto:{{ site.email }}" class="text-link">reach out</a> for a chat.
+If any of these questions interest you, feel free to <a href="mailto:{{ site.email }}" class="text-link">reach out</a> for a chat!
 
 <!-- home-full-width -->
 
@@ -40,7 +40,7 @@ If any of these questions interest you, feel free to <a href="mailto:{{ site.ema
 <img src="{{ site.url }}{{ site.baseurl }}/images/research/fig1_nips26v2.png" class="research-thumb" loading="lazy">
 </div>
 <div class="research-body">
-<h4 class="research-title">Capability ≠ Interpretability: Human Interpretability of Vision Foundation Models</h4>
+<h4 class="research-title"><a href="{{ '/publications/' | relative_url }}#colin2026foundations">Capability ≠ Interpretability: Human Interpretability of Vision Foundation Models</a></h4>
 <p class="research-authors">Julien Colin, Lore Goetschalckx, Nuria Oliver, and Thomas Serre.</p>
 <p class="research-desc">How interpretable are the features of modern vision models? We introduce a human-centric framework for measuring and comparing interpretability through two psychophysics protocols: localizability (can people predict where a feature fires?) and nameability (can people describe what it represents?). Applying it to ~6,000 sparse autoencoders features from six vision transformers, we collect more than 15,000 quality-filtered responses from about about 440 participants and find that foundation models (DINOv2, DINOv3, CLIP, SigLIP) are consistently less interpretable than their supervised counterparts. Crucially, this is not a capability tradeoff: interpretability is uncorrelated with downstream task performance. What predicts it is the locality of the representation and its coarse-grained semantic alignment with humans, establishing interpretability as an independent, measurable dimension of representation quality.</p>
 </div>
@@ -51,7 +51,7 @@ If any of these questions interest you, feel free to <a href="mailto:{{ site.ema
 <img src="{{ site.url }}{{ site.baseurl }}/images/research/features4_fixed.png" class="research-thumb" loading="lazy">
 </div>
 <div class="research-body">
-<h4 class="research-title">Does human-alignment benefit interpretability?</h4>
+<h4 class="research-title"><a href="{{ '/publications/' | relative_url }}#colin2026benefit">Does human-alignment benefit interpretability?</a></h4>
 <p class="research-authors">Julien Colin, Nuria Oliver, and Thomas Serre.</p>
 <p class="research-desc">How does aligning models with human perception reshape their representations, and does this improve interpretability? This work takes a first empirical step toward answering this question. Across three models from the DINO family, including one aligned with human fine-grained similarity judgments, we find that greater alignment is associated with greater interpretability, though sometimes at the cost of classification performance. More importantly, alignment reshapes not only the structure and functional properties of learned representations, but also the nature of their visual features — in the case of fine-grained similarity, promoting local features.</p>
 </div>
@@ -62,7 +62,7 @@ If any of these questions interest you, feel free to <a href="mailto:{{ site.ema
 <img src="{{ site.url }}{{ site.baseurl }}/images/research/choosingv2.png" class="research-thumb" loading="lazy">
 </div>
 <div class="research-body">
-<h4 class="research-title">Choosing the right basis for interpretability: Psychophysical comparison between neuron-based and dictionary-based representations</h4>
+<h4 class="research-title"><a href="{{ '/publications/' | relative_url }}#colin2026basis">Choosing the right basis for interpretability: Psychophysical comparison between neuron-based and dictionary-based representations</a></h4>
 <p class="research-authors">Julien Colin, Lore Goetschalckx, Thomas Fel, Victor Boutin, Thomas Serre, Nuria Oliver</p>
 <p class="research-desc">What is the right "atom" for interpreting vision models? Neurons have long been the default, yet they often mix unrelated patterns—motivating a recent shift toward dictionary learning methods. Across 481 participants and 2 models, we measured how visually coherent features from neurons or dictionary elements are, and find (1) dictionary-based features consistently more interpretable, and (2) that comparing models using neurons alone can mask real differences and  mislead conclusions.</p>
 </div>
@@ -74,7 +74,7 @@ If any of these questions interest you, feel free to <a href="mailto:{{ site.ema
 <img src="{{ site.url }}{{ site.baseurl }}/images/research/Figures_metapred.png" class="research-thumb" loading="lazy">
 </div>
 <div class="research-body">
-<h4 class="research-title">What i cannot predict, i do not understand: A human-centered evaluation framework for explainability methods</h4>
+<h4 class="research-title"><a href="{{ '/publications/' | relative_url }}#colin2022cannot">What i cannot predict, i do not understand: A human-centered evaluation framework for explainability methods</a></h4>
 <p class="research-authors">Julien Colin*, Thomas Fel*, Rémi Cadène, Thomas Serre.</p>
 <p class="research-desc">How useful are explainability methods for actual end-users? Most evaluation metrics for attribution methods have remained theoretical, with little regard for whether they help people understand AI systems. We address this gap with large-scale psychophysics experiments (n = 1,150) testing attribution methods across three real-world scenarios. Usefulness varies widely across scenarios, faithfulness metrics fail to predict practical utility, and high perceptual similarity between class-discriminative regions predicts failure cases — pointing to an intrinsic limitation of methods that show <i>where</i> but not <i>what</i> drives a decision.</p>
 </div>
@@ -86,7 +86,7 @@ If any of these questions interest you, feel free to <a href="mailto:{{ site.ema
 <img src="{{ site.url }}{{ site.baseurl }}/images/research/figure_craft.png" class="research-thumb"  loading="lazy">
 </div>
 <div class="research-body">
-<h4 class="research-title">CRAFT: Concept Recursive Activation FacTorization for Explainability</h4>
+<h4 class="research-title"><a href="{{ '/publications/' | relative_url }}#fel2023craft">CRAFT: Concept Recursive Activation FacTorization for Explainability</a></h4>
 <p class="research-authors">Thomas Fel*, Agustin Picard*, Louis Béthune*, Thibaut Boissin*, David Vigouroux, Julien Colin, Rémi Cadène, Thomas Serre.</p>
 <p class="research-desc">Attribution methods reveal <i>where</i> a model looks but not <i>what</i> it sees there. We introduce CRAFT, a concept-based explainability method, that identifies both <i>what</i> and <i>where</i>, built on three ingredients: a recursive procedure that extracts concepts at the right level of granularity, a more faithful concept importance estimator using total Sobol indices, and implicit differentiation through NMF to produce concept attribution maps. Through extensive psychophysics experiments, we validate that CRAFT recovers human-interpretable concepts which help users predict model decisions better than standard attribution methods do.</p>
 </div>
@@ -97,7 +97,7 @@ If any of these questions interest you, feel free to <a href="mailto:{{ site.ema
 <img src="{{ site.url }}{{ site.baseurl }}/images/research/figure_macov2.png" class="research-thumb" loading="lazy">
 </div>
 <div class="research-body">
-<h4 class="research-title">Unlocking feature visualization for deeper networks with magnitude constrained optimization</h4>
+<h4 class="research-title"><a href="{{ '/publications/' | relative_url }}#fel2023maco">Unlocking feature visualization for deeper networks with magnitude constrained optimization</a></h4>
 <p class="research-authors">Thomas Fel*, Thibaut Boissin*, Victor Boutin*, Agustin Picard*, Paul Novello*, Julien Colin, Drew Linsley, Tom Rousseau, Rémi Cadène, Laurent Gardes, Thomas Serre.</p>
 <p class="research-desc">Feature visualization promises to reveal <i>what</i> a neuron responds to, but existing methods produce noisy images and fail to scale to modern architectures. We introduce MACO, a feature visualization method that optimizes only the phase of the Fourier spectrum while keeping its magnitude fixed — a constraint inspired by human vision, which relies primarily on phase to recognize objects. Through a human experiment, we show that MACO helps participants predict model activations better than prior methods, even on deep networks like ViT where existing approaches fail — unlocking interpretable feature visualizations for state-of-the-art networks without any learned image prior.</p>
 </div>
