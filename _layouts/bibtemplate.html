@@ -79,15 +79,21 @@
     {% endif %}
   </div>
 
-  {% if entry.abstract %}
+  {%- assign bibtex_lines = entry.bibtex | split: '
+' -%}
+  {%- capture cleaned_bibtex -%}
+  {%- for bibtex_line in bibtex_lines -%}
+    {%- assign normalized_line = bibtex_line | strip -%}
+    {%- assign field_name = normalized_line | split: '=' | first | strip | downcase -%}
+    {%- unless normalized_line == '' or field_name == 'abstract' or field_name == 'file' or field_name == 'month' -%}
+{{ normalized_line }}|||LINEBREAK|||
+    {%- endunless -%}
+  {%- endfor -%}
+  {%- endcapture -%}
   <div class="pub-collapse" id="bib-{{ entry.key }}">
-    <pre>{{ entry.bibtex | remove: "entry.abstract" }}</pre>
+    <pre>{{ cleaned_bibtex | split: '|||LINEBREAK|||' | join: '
+' | strip }}</pre>
   </div>
-  {% else %}
-  <div class="pub-collapse" id="bib-{{ entry.key }}">
-    <pre>{{ entry.bibtex }}</pre>
-  </div>
-  {% endif %}
 
   {% if entry.abstract %}
   <div class="pub-collapse" id="abs-{{ entry.key }}">

@@ -50,8 +50,15 @@
   }
 
   .research-body {
-    padding: var(--space-6);
-    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    box-sizing: border-box;
+    padding: var(--research-body-padding, var(--space-6));
+    font-size: 0.875rem;
   }
 
   .research-title {
@@ -88,6 +95,7 @@
   margin-top: var(--space-4);
   --home-research-card-padding: clamp(0.625rem, 1.4vw, 1rem);
   --home-research-card-max-height: 66.666vh;
+  --research-body-padding: var(--space-2);
 
   .research-card {
     grid-template-columns: minmax(220px, 1fr) minmax(220px, 1fr);
@@ -123,13 +131,6 @@
     transform: none;
   }
 
-  .research-card > .research-body {
-    align-self: start;
-    box-sizing: border-box;
-    width: 100%;
-    padding: var(--space-2);
-  }
-
   .research-title {
     font-size: 1.8rem;
     line-height: 1.2;
@@ -145,10 +146,16 @@
   }
 
   .research-desc {
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
+    overflow-y: auto;
+    flex: 1 1 auto;
+    min-height: 0;
+    padding-right: 0.35rem;
   }
 
   @media (max-width: 1200px) {
+    --research-body-padding: var(--space-1) 0 0;
+
     .research-card {
       grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr);
     }
@@ -157,16 +164,14 @@
       align-self: stretch;
     }
 
-    .research-body {
-      padding: var(--space-1) 0 0;
-    }
-
     .research-title {
       font-size: 1.55rem;
     }
   }
 
   @media (max-width: 700px) {
+    --research-body-padding: 0;
+
     .research-card {
       grid-template-columns: 1fr;
       row-gap: var(--space-3);
@@ -176,17 +181,14 @@
       height: clamp(220px, 42vw, 320px);
     }
 
-    .research-card > .research-body {
-      height: auto;
-      padding: 0;
-    }
-
     .research-title {
       font-size: 1.45rem;
     }
   }
 
   @media (max-width: 640px) {
+    --research-body-padding: var(--space-2) 0 0;
+
     .research-card {
       height: auto;
       min-height: 0;
@@ -199,10 +201,6 @@
     .research-thumb {
       height: 100%;
       min-height: 0;
-    }
-
-    .research-body {
-      padding: var(--space-2) 0 0;
     }
 
     .research-title {

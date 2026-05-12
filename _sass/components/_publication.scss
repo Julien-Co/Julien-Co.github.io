@@ -18,6 +18,11 @@
 
 .bibliography li {
   margin-left: 0;
+  margin-bottom: 0;
+
+  > p {
+    margin: 0;
+  }
 }
 
 .pub-entry {
@@ -34,6 +39,7 @@
     color: var(--text-primary);
     font-size: 1rem;
     line-height: 1.5;
+    margin-top: 0;
     margin-bottom: var(--space-1);
   }
 
@@ -41,6 +47,7 @@
     font-size: 0.9375rem;
     color: var(--text-secondary);
     line-height: 1.6;
+    margin-top: 0;
     margin-bottom: var(--space-1);
   }
 
@@ -48,6 +55,8 @@
     font-size: 0.875rem;
     color: var(--text-muted);
     font-style: italic;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   .pub-year {
