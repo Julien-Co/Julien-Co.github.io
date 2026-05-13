@@ -2,6 +2,32 @@
 ---
 
 <div class="pub-entry" id="{{ entry.key }}" data-pub-searchable>
+  {% assign venue_label = nil %}
+  {% assign venue_href = nil %}
+
+  {% if entry.venue and entry.venue != "" %}
+    {% assign venue_label = entry.venue %}
+  {% endif %}
+
+  {% if entry.url and entry.url != "" %}
+    {% assign venue_href = entry.url %}
+  {% elsif entry.doi %}
+    {% if entry.type == 'unpublished' %}
+      {% assign venue_href = entry.doi | prepend: 'https://arxiv.org/abs/' %}
+    {% else %}
+      {% assign venue_href = entry.doi | prepend: 'https://doi.org/' %}
+    {% endif %}
+  {% elsif entry.arxiv and entry.arxiv != "" %}
+    {% assign venue_href = entry.arxiv %}
+    {% unless venue_href contains 'http' %}
+      {% assign venue_href = entry.arxiv | prepend: 'https://arxiv.org/abs/' %}
+    {% endunless %}
+  {% endif %}
+
+  {% if venue_label %}
+    {% assign venue_slug = venue_label | slugify %}
+  {% endif %}
+
   <div class="pub-title">{{ entry.title }}</div>
   <div class="pub-authors">
     {% assign authors = entry.author | split: ' and ' %}
@@ -39,28 +65,17 @@
     </a>
     {% endif %}
 
-    {% if entry.arxiv and entry.arxiv != "" %}
-      {% assign arxiv_link = entry.arxiv %}
-      {% unless arxiv_link contains 'http' %}
-        {% assign arxiv_link = entry.arxiv | prepend: 'https://arxiv.org/abs/' %}
-      {% endunless %}
-      <a href="{{ arxiv_link }}" target="_blank" rel="noopener" class="btn-pill btn-arxiv" aria-label="Open arXiv">
-        <i class="ai ai-arxiv" aria-hidden="true"></i>
-        <span>arXiv</span>
-      </a>
-    {% endif %}
-
-    {% if entry.doi %}
-      {% if entry.type == 'unpublished' %}
-      <a href="{{ entry.doi | prepend: 'https://arxiv.org/abs/' }}" target="_blank" rel="noopener" class="btn-pill btn-arxiv" aria-label="Open arXiv">
-        <i class="ai ai-arxiv" aria-hidden="true"></i>
-        <span>arXiv</span>
+    {% if venue_label %}
+      {% if venue_href %}
+      <a href="{{ venue_href }}" target="_blank" rel="noopener" class="btn-pill btn-venue btn-venue--{{ venue_slug }}" data-venue="{{ venue_slug }}" aria-label="Open venue page">
+        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+        <span>{{ venue_label }}</span>
       </a>
       {% else %}
-      <a href="{{ entry.doi | prepend: 'http://doi.org/' }}" target="_blank" rel="noopener" class="btn-pill btn-doi" aria-label="Open DOI">
-        <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-        <span>DOI</span>
-      </a>
+      <span class="btn-pill btn-venue btn-venue--{{ venue_slug }} is-static" data-venue="{{ venue_slug }}" aria-label="Venue">
+        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+        <span>{{ venue_label }}</span>
+      </span>
       {% endif %}
     {% endif %}
 

@@ -1,14 +1,17 @@
 # News items shown on the home page sidebar.
 # The 3 most recent are shown; all appear on /allnews.
 # Each entry needs: date, headline
+# Optional fields: url, anchor
 - date: March, 2026
   headline: "Attending the Winter School on Foundation Models in Amsterdam"
-
+  url: "https://ivi.fnwi.uva.nl/ellis/events/winter-school-on-foundation-models-fomo-2026-registration-opens-on-14-november-2025/"
 - date: March, 2026
   headline: "1 paper accepted at ICLR 2026 Workshop on Representational Alignment"
+  url: "/publications/"
+  anchor: "colin2026benefit"
 
 - date: April, 2025
-  headline: "Visiting Brown University as a Research Fellow"
+  headline: "Visiting Brown University as a Research Fellow for 6 months"
 
 # - date: April, 2025
 #   headline: "Visiting Brown University as a Research Fellow"

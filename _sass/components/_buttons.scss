@@ -30,6 +30,48 @@
     &:hover { opacity: 0.85; color: var(--bg-primary); }
   }
 
+  &.btn-venue {
+    --venue-color: #fff;
+    background-color: var(--venue-color);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+    &:hover {
+      background-color: var(--venue-color);
+      color: var(--text-primary);
+      opacity: 0.92;
+    }
+
+    &.is-static {
+      cursor: default;
+      pointer-events: none;
+      opacity: 0.92;
+    }
+  }
+
+  // Venue color mapping.
+  // Major ML venues share one highlight color and everything else
+  // inherits the default white background above.
+
+  &.btn-venue--neurips {
+    --venue-color: #FFB584;
+    border-color: #FFB584;
+  }
+
+  &.btn-venue--icml {
+    --venue-color: #FFB584;
+    border-color: #FFB584;
+  }
+
+  &.btn-venue--iclr {
+    --venue-color: #FFB584;
+    border-color: #FFB584;
+  }
+
+  &.btn-venue--cvpr {
+    --venue-color: #FFB584;
+    border-color: #FFB584;
+  }
+
   &.btn-arxiv {
     background-color: #b31b1b;
     color: #fff;
