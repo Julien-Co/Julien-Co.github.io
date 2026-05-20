@@ -2,11 +2,16 @@
 # The 3 most recent are shown; all appear on /allnews.
 # Each entry needs: date, headline
 # Optional fields: url, anchor
+
+- date: May, 2026
+  headline: "1 Extended Abstract accepted at Conference on Cognitive Computational Neuroscience (CCN)"
+
 - date: March, 2026
   headline: "Attending the Winter School on Foundation Models in Amsterdam"
   url: "https://ivi.fnwi.uva.nl/ellis/events/winter-school-on-foundation-models-fomo-2026-registration-opens-on-14-november-2025/"
+
 - date: March, 2026
-  headline: "1 paper accepted at ICLR 2026 Workshop on Representational Alignment"
+  headline: "1 paper accepted at ICLR Workshop on Representational Alignment"
   url: "/publications/"
   anchor: "colin2026benefit"
 
