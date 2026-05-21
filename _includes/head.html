@@ -11,6 +11,7 @@
   <meta name="description" content="{{ page_description | escape }}">
   {% if page_keywords %}<meta name="keywords" content="{{ page_keywords | join: ', ' | escape }}">{% endif %}
   <meta name="robots" content="{{ robots_content }}">
+  {% if site.search_console.google_site_verification and site.search_console.google_site_verification != "" %}<meta name="google-site-verification" content="{{ site.search_console.google_site_verification }}">{% endif %}
 
   <!-- Open Graph / Social Sharing -->
   <meta property="og:title" content="{{ page_title | escape }}">

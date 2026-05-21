@@ -44,7 +44,10 @@ url: "https://julien-co.github.io"
 
 # Google Analytics — paste your GA4 measurement ID, or leave blank
 analytics:
-  google_id: ""
+  google_id: "G-ZKQ6VYV822"
+
+search_console:
+  google_site_verification: "SSmspUVQYpGMOq5y9Z-5HOFuLuydhe1DMXfquBjO77U"
 
 # ============================================================
 # STEP 4: Choose Your Pages (comment out any you don't need)
