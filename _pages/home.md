@@ -1,8 +1,18 @@
 ---
 title: "Home"
 layout: homelay
-sitemap: false
+sitemap: true
 permalink: /
+description: "Julien Colin is an ELLIS PhD student in interpretable AI working on model interpretability, human-aligned representations, computer vision, and psychophysics."
+keywords:
+  - Julien Colin
+  - interpretable AI
+  - model interpretability
+  - explainable AI
+  - human-aligned representations
+  - computer vision
+  - psychophysics
+image: "headshot.JPG"
 ---
 
 <h2 class="home-hero">{{ site.name }}</h2>

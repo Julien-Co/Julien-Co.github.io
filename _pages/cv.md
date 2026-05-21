@@ -2,6 +2,11 @@
 title: "CV"
 permalink: /cv/
 sitemap: false
+description: "Curriculum vitae of Julien Colin, PhD student in interpretable AI."
+keywords:
+  - Julien Colin CV
+  - Julien Colin resume
+robots: "noindex,follow"
 ---
 
 <!doctype html>

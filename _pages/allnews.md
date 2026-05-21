@@ -3,6 +3,12 @@ title: "News"
 layout: gridlay
 sitemap: false
 permalink: /allnews.html
+description: "News and updates from Julien Colin including publications, talks, awards, and research milestones."
+keywords:
+  - Julien Colin news
+  - research updates
+  - publications
+  - talks
 ---
 
 ## News

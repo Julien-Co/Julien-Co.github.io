@@ -19,9 +19,9 @@ links:
   google_scholar: "https://scholar.google.com/citations?user=WM6NdwMAAAAJ&hl"
   github: ""
   researchgate: ""
-  orcid: ""
+  orcid: "https://orcid.org/0000-0003-0279-7095"
   twitter: "https://x.com/juliencolin_"
-  linkedin: "www.linkedin.com/in/julien-colin-b84045256"
+  linkedin: "https://www.linkedin.com/in/julien-colin-b84045256/"
   cv: "papers/cv.pdf"  # e.g., "papers/cv.pdf" — leave blank to hide the CV icon
 
 # ============================================================
@@ -30,8 +30,17 @@ links:
 # accent_color: "#4A8FB9"  #"#1a7a6d"      # theme color for links and buttons
 dark_mode: true              # show dark mode toggle in navbar
 description: "Academic webpage of Julien Colin"
+keywords:
+  - interpretable AI
+  - model interpretability
+  - explainable AI
+  - human-aligned representations
+  - computer vision
+  - psychophysics
+  - machine learning
+  - alignment
 baseurl: ""
-url: ""
+url: "https://julien-co.github.io"
 
 # Google Analytics — paste your GA4 measurement ID, or leave blank
 analytics:

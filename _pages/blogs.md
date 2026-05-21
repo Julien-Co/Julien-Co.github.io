@@ -3,6 +3,12 @@ title: "Blog"
 layout: gridlay
 sitemap: false
 permalink: /blogs/
+description: "Blog posts by Julien Colin on interpretable AI, machine learning, computer vision, and research."
+keywords:
+  - Julien Colin blog
+  - interpretable AI blog
+  - machine learning blog
+  - computer vision blog
 ---
 
 ## Blog

@@ -1,8 +1,15 @@
 ---
 title: "Publications"
 layout: gridlay
-sitemap: false
+sitemap: true
 permalink: /publications/
+description: "Publications by Julien Colin on interpretable AI, explainability, human-aligned representations, and computer vision."
+keywords:
+  - Julien Colin publications
+  - interpretable AI papers
+  - explainability papers
+  - computer vision research
+  - human-aligned representations
 ---
 
 ## Publications

@@ -1,19 +1,28 @@
 <head>
+  {% assign page_title = page.title | default: site.name %}
+  {% assign page_description = page.description | default: site.description %}
+  {% assign canonical_url = page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url %}
+  {% assign share_image = page.image | default: site.photo %}
+  {% assign page_keywords = page.keywords | default: site.keywords %}
+  {% assign robots_content = page.robots | default: 'index,follow' %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title %}{{ page.title | escape }} - {{ site.name | escape }}{% else %}{{ site.name | escape }}{% endif %}</title>
-  <meta name="description" content="{{ site.description }}">
+  <title>{% if page.title %}{{ page_title | escape }} - {{ site.name | escape }}{% else %}{{ site.name | escape }}{% endif %}</title>
+  <meta name="description" content="{{ page_description | escape }}">
+  {% if page_keywords %}<meta name="keywords" content="{{ page_keywords | join: ', ' | escape }}">{% endif %}
+  <meta name="robots" content="{{ robots_content }}">
 
   <!-- Open Graph / Social Sharing -->
-  <meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.name | escape }}{% endif %}">
-  <meta property="og:description" content="{{ site.description }}">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url }}">
-  {% if site.photo %}<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/images/{{ site.photo }}">{% endif %}
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.name | escape }}{% endif %}">
-  <meta name="twitter:description" content="{{ site.description }}">
-  {% if site.photo %}<meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/images/{{ site.photo }}">{% endif %}
+  <meta property="og:title" content="{{ page_title | escape }}">
+  <meta property="og:description" content="{{ page_description | escape }}">
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  {% if share_image %}<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/images/{{ share_image }}">{% endif %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page_title | escape }}">
+  <meta name="twitter:description" content="{{ page_description | escape }}">
+  {% if share_image %}<meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/images/{{ share_image }}">{% endif %}
+  {% if site.links.twitter and site.links.twitter != "" %}<meta name="twitter:creator" content="@juliencolin_">{% endif %}
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +35,7 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="canonical" href="{{ canonical_url }}">
   <link rel="icon" href="{{ site.url }}{{ site.baseurl }}/favicon.svg" type="image/svg+xml">
   <link rel="alternate icon" href="{{ site.url }}{{ site.baseurl }}/favicon.ico">
   <link rel="alternate" type="application/rss+xml" title="{{ site.name | escape }}" href="{{ site.url }}{{ site.baseurl }}/feed.xml">
@@ -60,10 +69,28 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "{% if page.url == '/' %}WebSite{% else %}WebPage{% endif %}",
-    "name": "{% if page.title %}{{ page.title | escape }}{% else %}{{ site.name | escape }}{% endif %}",
-    "url": "{{ page.url | prepend: site.baseurl | prepend: site.url }}",
-    "description": "{{ site.description | escape }}",
+    "@type": "{% if page.url == '/' %}Person{% elsif page.layout == 'post' %}BlogPosting{% else %}WebPage{% endif %}",
+    "name": "{{ page_title | escape }}",
+    "url": "{{ canonical_url }}",
+    "description": "{{ page_description | escape }}",
+    {% if share_image %}"image": "{{ site.url }}{{ site.baseurl }}/images/{{ share_image }}",{% endif %}
+    {% if page.url == '/' %}
+    "jobTitle": "{{ site.title | escape }}",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "{{ site.institution | escape }}"
+    },
+    "email": "mailto:{{ site.email }}",
+    "sameAs": [
+      {% assign identity_links = "" | split: "" %}
+      {% if site.links.google_scholar and site.links.google_scholar != "" %}{% assign identity_links = identity_links | push: site.links.google_scholar %}{% endif %}
+      {% if site.links.github and site.links.github != "" %}{% assign identity_links = identity_links | push: site.links.github %}{% endif %}
+      {% if site.links.orcid and site.links.orcid != "" %}{% assign identity_links = identity_links | push: site.links.orcid %}{% endif %}
+      {% if site.links.twitter and site.links.twitter != "" %}{% assign identity_links = identity_links | push: site.links.twitter %}{% endif %}
+      {% if site.links.linkedin and site.links.linkedin != "" %}{% assign identity_links = identity_links | push: site.links.linkedin %}{% endif %}
+      {% for link in identity_links %}"{{ link }}"{% unless forloop.last %}, {% endunless %}{% endfor %}
+    ]
+    {% else %}
     "author": {
       "@type": "Person",
       "name": "{{ site.name | escape }}",
@@ -71,9 +98,18 @@
       "affiliation": {
         "@type": "Organization",
         "name": "{{ site.institution | escape }}"
-      }{% if site.links.google_scholar and site.links.google_scholar != "" %},
-      "sameAs": ["{{ site.links.google_scholar }}"{% if site.links.github and site.links.github != "" %}, "{{ site.links.github }}"{% endif %}{% if site.links.orcid and site.links.orcid != "" %}, "{{ site.links.orcid }}"{% endif %}]{% endif %}
+      },
+      "sameAs": [
+        {% assign identity_links = "" | split: "" %}
+        {% if site.links.google_scholar and site.links.google_scholar != "" %}{% assign identity_links = identity_links | push: site.links.google_scholar %}{% endif %}
+        {% if site.links.github and site.links.github != "" %}{% assign identity_links = identity_links | push: site.links.github %}{% endif %}
+        {% if site.links.orcid and site.links.orcid != "" %}{% assign identity_links = identity_links | push: site.links.orcid %}{% endif %}
+        {% if site.links.twitter and site.links.twitter != "" %}{% assign identity_links = identity_links | push: site.links.twitter %}{% endif %}
+        {% if site.links.linkedin and site.links.linkedin != "" %}{% assign identity_links = identity_links | push: site.links.linkedin %}{% endif %}
+        {% for link in identity_links %}"{{ link }}"{% unless forloop.last %}, {% endunless %}{% endfor %}
+      ]
     }
+    {% endif %}
   }
   </script>
 </head>
