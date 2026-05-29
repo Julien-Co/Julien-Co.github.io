@@ -115,6 +115,11 @@ scholar:
 exclude:
   - Gemfile
   - Gemfile.lock
+  - LICENSE
+  - README.md
+  - UPGRADING.md
+  - _config_demo.yml
+  - setup.sh
   - update_bootstrap.sh
   - switch_theme.sh
   - tags

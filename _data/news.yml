@@ -2,6 +2,10 @@
 # The 3 most recent are shown; all appear on /allnews.
 # Each entry needs: date, headline
 # Optional fields: url, anchor
+- date: May, 2026
+  headline: "Gave a lightning talk at the ELLIS Human-centric Machine Learning Workshop"
+  url: "https://ellisalicante.org/ellis-hcml-2026/"
+
 
 - date: May, 2026
   headline: "Extended Abstract accepted at the Conference on Cognitive Computational Neuroscience (CCN)"
@@ -17,6 +21,3 @@
 
 - date: April, 2025
   headline: "Visiting Brown University as a Research Fellow for 6 months"
-
-# - date: April, 2025
-#   headline: "Visiting Brown University as a Research Fellow"

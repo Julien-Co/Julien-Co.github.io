@@ -33,7 +33,7 @@ Hi, my name is Julien. I am a 4th year
 PhD student, working under the supervision of <a href="https://nuriaoliver.com/" target="_blank" rel="noopener noreferrer" class="text-link">Nuria Oliver</a> and <a href="https://thomas-serre.com/" class="text-link">Thomas Serre</a>.
  
 
-I study what makes representations interpretable to humans, how aligning models with human perception reshapes their representations, and what this means for model interpretability.
+I study what makes representations interpretable to humans, how aligning models with human perception reshapes their representations, and how we can leverage this to steer models toward more interpretable representations.
 
 If any of these questions interest you, feel free to <a href="mailto:{{ site.email }}" class="text-link">reach out</a> for a chat!
 

@@ -12,6 +12,14 @@
   {% if page_keywords %}<meta name="keywords" content="{{ page_keywords | join: ', ' | escape }}">{% endif %}
   <meta name="robots" content="{{ robots_content }}">
   {% if site.search_console.google_site_verification and site.search_console.google_site_verification != "" %}<meta name="google-site-verification" content="{{ site.search_console.google_site_verification }}">{% endif %}
+  {% if page.citation_title %}<meta name="citation_title" content="{{ page.citation_title | escape }}">{% endif %}
+  {% if page.citation_authors %}{% for author in page.citation_authors %}<meta name="citation_author" content="{{ author | escape }}">
+  {% endfor %}{% endif %}
+  {% if page.citation_publication_date %}<meta name="citation_publication_date" content="{{ page.citation_publication_date | escape }}">{% endif %}
+  {% if page.citation_journal_title %}<meta name="citation_journal_title" content="{{ page.citation_journal_title | escape }}">{% endif %}
+  {% if page.citation_conference_title %}<meta name="citation_conference_title" content="{{ page.citation_conference_title | escape }}">{% endif %}
+  {% if page.citation_pdf_url %}<meta name="citation_pdf_url" content="{{ site.url }}{{ site.baseurl }}{{ page.citation_pdf_url }}">{% endif %}
+  {% if page.citation_arxiv_id %}<meta name="citation_arxiv_id" content="{{ page.citation_arxiv_id | escape }}">{% endif %}
 
   <!-- Open Graph / Social Sharing -->
   <meta property="og:title" content="{{ page_title | escape }}">
@@ -70,12 +78,31 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "{% if page.url == '/' %}Person{% elsif page.layout == 'post' %}BlogPosting{% else %}WebPage{% endif %}",
+    "@type": "{% if page.schema_type %}{{ page.schema_type }}{% elsif page.url == '/' %}Person{% elsif page.layout == 'post' %}BlogPosting{% else %}WebPage{% endif %}",
     "name": "{{ page_title | escape }}",
     "url": "{{ canonical_url }}",
     "description": "{{ page_description | escape }}",
     {% if share_image %}"image": "{{ site.url }}{{ site.baseurl }}/images/{{ share_image }}",{% endif %}
-    {% if page.url == '/' %}
+    {% if page.schema_type == 'ScholarlyArticle' %}
+    "headline": "{{ page.citation_title | default: page_title | escape }}",
+    {% if page.citation_summary %}"abstract": "{{ page.citation_summary | strip_html | normalize_whitespace | escape }}",{% endif %}
+    {% if page.citation_publication_date %}"datePublished": "{{ page.citation_publication_date | escape }}",{% endif %}
+    {% if page.citation_pdf_url %}"encoding": {
+      "@type": "MediaObject",
+      "contentUrl": "{{ site.url }}{{ site.baseurl }}{{ page.citation_pdf_url }}"
+    },{% endif %}
+    "author": [
+      {% for author in page.citation_authors %}{
+        "@type": "Person",
+        "name": "{{ author | escape }}"
+      }{% unless forloop.last %}, {% endunless %}{% endfor %}
+    ]{% if page.citation_venue_url or page.citation_pdf_url %},{% endif %}
+    {% if page.citation_venue_url and page.citation_pdf_url %}"sameAs": ["{{ page.citation_venue_url }}", "{{ site.url }}{{ site.baseurl }}{{ page.citation_pdf_url }}"],
+    {% elsif page.citation_venue_url %}"sameAs": ["{{ page.citation_venue_url }}"],
+    {% elsif page.citation_pdf_url %}"sameAs": ["{{ site.url }}{{ site.baseurl }}{{ page.citation_pdf_url }}"],
+    {% endif %}
+    "mainEntityOfPage": "{{ canonical_url }}"
+    {% elsif page.url == '/' %}
     "jobTitle": "{{ site.title | escape }}",
     "affiliation": {
       "@type": "Organization",

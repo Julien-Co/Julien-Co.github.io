@@ -35,5 +35,4 @@ Equation \eqref{lorentz} is beautiful. So is equation \eqref{rotation}.
 
 ## References
 
-- [The Feynman Lectures on Physics First Year Photos (1961‑62) Lecture 17](https://www.feynmanlectures.caltech.edu/flpphotos.html#17)
 - [Lorentz transformation on Wikipedia](https://en.wikipedia.org/wiki/Lorentz_transformation)
