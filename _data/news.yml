@@ -2,6 +2,12 @@
 # The 3 most recent are shown; all appear on /allnews.
 # Each entry needs: date, headline
 # Optional fields: url, anchor
+- date: August, 2026
+  headline: "Paper accepted at ECCV Workshop on Explainble Computer Vision (ECCV)"
+
+- date: August, 2026
+  headline: "Paper accepted at Transactions on Machine Learning Research (TMLR)"
+
 - date: May, 2026
   headline: "Gave a lightning talk at the ELLIS Human-centric Machine Learning Workshop"
   url: "https://ellisalicante.org/ellis-hcml-2026/"
