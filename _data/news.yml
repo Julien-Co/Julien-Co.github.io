@@ -2,19 +2,31 @@
 # The 3 most recent are shown; all appear on /allnews.
 # Each entry needs: date, headline
 # Optional fields: url, anchor
+
+- date: August, 2026
+  headline: "Gave a talk at the Konkle Lab (Harvard)"
+  url: "https://konklab.fas.harvard.edu/"
+
 - date: August, 2026
   headline: "Paper accepted at ECCV Workshop on Explainble Computer Vision (ECCV)"
+  url: "/publications/"
+  anchor: "colin2026opinion"
+
 
 - date: August, 2026
   headline: "Paper accepted at Transactions on Machine Learning Research (TMLR)"
+  url: "/publications/"
+  anchor: "colin2026basis"
 
 - date: May, 2026
-  headline: "Gave a lightning talk at the ELLIS Human-centric Machine Learning Workshop"
+  headline: "Gave a talk at the ELLIS Human-centric Machine Learning Workshop"
   url: "https://ellisalicante.org/ellis-hcml-2026/"
 
 
 - date: May, 2026
   headline: "Extended Abstract accepted at the Conference on Cognitive Computational Neuroscience (CCN)"
+  url: "/publications/"
+  anchor: "colin2026ccn"
 
 - date: March, 2026
   headline: "Attending the Winter School on Foundation Models in Amsterdam"
