@@ -48,6 +48,14 @@
     }
   }
 
+  &.btn-award {
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    border-color: #FFB584;
+    border-width: 2px;
+    cursor: default;
+  }
+
   // Venue color mapping.
   // Major ML venues share one highlight color and everything else
   // inherits the default white background above.

@@ -79,6 +79,10 @@
       {% endif %}
     {% endif %}
 
+    {% if entry.award and entry.award != "" %}
+    <span class="btn-pill btn-award" aria-label="{{ entry.award }} recognition">{{ entry.award }}</span>
+    {% endif %}
+
     {% if entry.type == 'unpublished' or entry.type == 'article' or entry.type == 'thesis' or entry.type == 'inproceedings' or entry.type == 'report' %}
     <button class="btn-pill btn-bib" data-toggle-target="bib-{{ entry.key }}">
       <i class="fa-solid fa-quote-left" aria-hidden="true"></i>
@@ -100,7 +104,7 @@
   {%- for bibtex_line in bibtex_lines -%}
     {%- assign normalized_line = bibtex_line | strip -%}
     {%- assign field_name = normalized_line | split: '=' | first | strip | downcase -%}
-    {%- unless normalized_line == '' or field_name == 'abstract' or field_name == 'file' or field_name == 'month' -%}
+    {%- unless normalized_line == '' or field_name == 'abstract' or field_name == 'award' or field_name == 'file' or field_name == 'month' -%}
 {{ normalized_line }}|||LINEBREAK|||
     {%- endunless -%}
   {%- endfor -%}
